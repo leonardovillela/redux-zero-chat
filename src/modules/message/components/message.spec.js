@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Message from './message';
 
 describe('Message component unit', () => {
-  it('Snapshot test', () => {
+  it('Should render component with correct structure', () => {
     const wrapper = shallow(<Message
       message={[]}
       createMessage={ jest.fn() }
