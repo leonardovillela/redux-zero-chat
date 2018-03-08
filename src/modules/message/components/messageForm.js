@@ -4,7 +4,7 @@ import { isEmpty } from 'lodash';
 
 const onSubmitForm = (action, event) => {
   event.preventDefault();
-  action(event.target.value);
+  action();
 }
 
 const MessageForm = ({ className, clearMessageContent, messageContent, setMessageContent, createMessage }) => {
