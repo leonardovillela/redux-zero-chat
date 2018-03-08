@@ -18,7 +18,7 @@ describe('Test actions interactions unit', () => {
     expect(result).toMatchObject({ userName: userNameStub });
   });
 
-  it('Create user', async () => {
+  it('Should create user with success', async () => {
     const userNameStub = chance.name();
     const currentUserStub = {};
     const createUserMock = jest.fn(() => currentUserStub);
@@ -29,5 +29,17 @@ describe('Test actions interactions unit', () => {
 
     expect(createUserMock).toBeCalledWith(userNameStub);
     expect(result.currentUser).toBe(currentUserStub);
+  });
+
+  it('Should not create user, when an error(with message) is throwed ', async () => {
+    const errorMessageStub = chance.string();
+    const createUserMock = jest.fn(() => { throw new Error(errorMessageStub) });
+    global.alert = jest.fn();
+    jest.doMock('./services', () => ({ createUser: createUserMock }));
+
+    const actions = require('./actions').default;
+    await actions(store).createUser({});
+
+    expect(global.alert).toBeCalledWith(errorMessageStub);
   });
 });

@@ -31,3 +31,9 @@ exports[`Test MessageList component unit Should render component with correct st
   />
 </div>
 `;
+
+exports[`Test MessageList component unit Should render component with correct with correct structure, even when messages undefined 1`] = `
+<div
+  className="undefined ba pa3 overflow-y-auto"
+/>
+`;

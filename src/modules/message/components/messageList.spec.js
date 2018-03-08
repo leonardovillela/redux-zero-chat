@@ -20,4 +20,10 @@ describe('Test MessageList component unit', () => {
 
     expect(wrapper3).toMatchSnapshot();
   })
+
+  it('Should render component with correct with correct structure, even when messages undefined', () => {
+    const wrapper = shallow(<MessageList />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -5,7 +5,7 @@ async function createUser(userName) {
   try {
     return { currentUser: await services.createUser(userName) };
   } catch(err) {
-    alert(err.message || err);
+    alert(err.message);
   }
 }
 
