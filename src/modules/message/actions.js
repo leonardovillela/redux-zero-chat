@@ -1,4 +1,4 @@
-import { composeP } from 'ramda';
+import utils from '../../utils';
 
 import * as services from './services';
 
@@ -17,6 +17,6 @@ function clearMessageContent() {
 
 export default (store) => ({
   fetchMessages: state => fetchLastMessages(state.messages),
-  createMessage: composeP(clearMessageContent, createMessage),
+  createMessage: utils.functional.compose(clearMessageContent, createMessage),
   setMessageContent: (state, content) => ({ messageContent: content }),
 });

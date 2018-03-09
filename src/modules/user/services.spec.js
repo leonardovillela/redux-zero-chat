@@ -23,7 +23,10 @@ describe('Test services unit', () => {
 
     jest.doMock('./apiRoutes', () => ({ index: indexStub, lastUser: lastUserStub }));
     jest.doMock('../shared', () => ({ apiClient: { post: postMock, get: getMock } }));
-    jest.doMock('../../utils', () => ({ localStorage: { setJSONData: setJSONDataMock } }));
+    jest.doMock('../../utils', () => ({
+      ...require.requireActual('../../utils').default,
+      localStorage: { setJSONData: setJSONDataMock }
+    }));
 
     const services = require('./services').default;
 
@@ -47,7 +50,10 @@ describe('Test services unit', () => {
 
     jest.doMock('./apiRoutes', () => ({ index: indexStub, lastUser: lastUserStub }));
     jest.doMock('../shared', () => ({ apiClient: { post: postMock, get: getMock } }));
-    jest.doMock('../../utils', () => ({ localStorage: { setJSONData: setJSONDataMock } }));
+    jest.doMock('../../utils', () => ({
+      ...require.requireActual('../../utils').default,
+      localStorage: { setJSONData: setJSONDataMock }
+    }));
 
     const services = require('./services').default;
 

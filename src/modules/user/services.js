@@ -1,10 +1,8 @@
 import { isEmpty, property } from 'lodash';
-import { composeP } from 'ramda';
+import utils from '../../utils';
 
 import shared from '../shared';
 import apiRoutes from './apiRoutes';
-
-import utils from '../../utils';
 
 async function generateNewId() {
   const { data } = (await shared.apiClient.get(apiRoutes.lastUser));
@@ -19,7 +17,7 @@ async function sendUser(userName) {
 }
 
 export default {
-  createUser: composeP(
+  createUser: utils.functional.compose(
     utils.localStorage.setJSONData.bind(this, 'currentUser'),
     sendUser,
   )
