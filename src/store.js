@@ -13,3 +13,11 @@ const INITIAL_STATE = {
 const middlewares = connect ? applyMiddleware(connect(INITIAL_STATE)) : [];
 
 export default createStore(INITIAL_STATE, middlewares);
+
+
+const actions = store => ({
+  updateScreen: state => ({a: true}),
+  formActions: {
+    save: state  => ({inc: store.inc + 1})
+  },
+})

@@ -25,7 +25,4 @@ const enhance = compose(
   connect(({ userName, currentUser }) => ({ userName, currentUser }), actions),
   withRedirectIfHasCurrentUser,
 );
-
-connect(withRedirectIfHasCurrentUser(PageContent))
-
 export default enhance(PageContent);
