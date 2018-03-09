@@ -15,7 +15,7 @@ describe('Test Actions unit', () => {
 
   it('Check if fetchMessages works with no previous message and return no messages', async () => {
     const getLastMessagesMock = jest.fn((messages) => []);
-    jest.doMock('./service', () => ({ getLastMessages: getLastMessagesMock }));
+    jest.doMock('./services', () => ({ getLastMessages: getLastMessagesMock }));
 
     const actions = require('./actions').default;
 
@@ -28,7 +28,7 @@ describe('Test Actions unit', () => {
     const messagesStub = times(chance.natural({min: 1, max: 20}), () => chance.name());
 
     const getLastMessagesMock = jest.fn((messages) => []);
-    jest.doMock('./service', () => ({ getLastMessages: getLastMessagesMock }));
+    jest.doMock('./services', () => ({ getLastMessages: getLastMessagesMock }));
 
     const actions = require('./actions').default;
 
@@ -42,7 +42,7 @@ describe('Test Actions unit', () => {
     const newMessagesStub = times(chance.natural({min: 1, max: 20}), () => chance.name());
 
     const getLastMessagesMock = jest.fn((messages) => newMessagesStub);
-    jest.doMock('./service', () => ({ getLastMessages: getLastMessagesMock }));
+    jest.doMock('./services', () => ({ getLastMessages: getLastMessagesMock }));
 
     const actions = require('./actions').default;
 
@@ -56,7 +56,7 @@ describe('Test Actions unit', () => {
     const messageContentStub = chance.string();
 
     const createMessageMock = jest.fn();
-    jest.doMock('./service', () => ({ createMessage: createMessageMock }));
+    jest.doMock('./services', () => ({ createMessage: createMessageMock }));
 
     const actions = require('./actions').default;
 

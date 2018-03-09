@@ -1,14 +1,14 @@
 import { composeP } from 'ramda';
 
-import * as service from './service';
+import * as services from './services';
 
 async function fetchLastMessages(messagesInStore) {
-  const newMessages = await service.getLastMessages(messagesInStore);
+  const newMessages = await services.getLastMessages(messagesInStore);
   return { messages: [ ...messagesInStore, ...newMessages] };
 }
 
 async function createMessage({ currentUser: { name }, messageContent }) {
-  await service.createMessage(name, messageContent);
+  await services.createMessage(name, messageContent);
 }
 
 function clearMessageContent() {
