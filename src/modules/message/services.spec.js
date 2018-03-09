@@ -23,8 +23,8 @@ describe('Service unit test', () => {
     jest.doMock('./apiRoutes', () => ({ createMessage: getLastMessagesRouteStub }));
     jest.doMock('../shared', () => ({ apiClient: { post: getMock } }));
 
-    const service = require('./service');
-    const result = await service.createMessage(userNameStub, contentStub);
+    const services = require('./services');
+    const result = await services.createMessage(userNameStub, contentStub);
 
     expect(getMock).toBeCalledWith(getLastMessagesRouteStub, {
       createdAt: dateNowStub.getTime(),
@@ -49,8 +49,8 @@ describe('Service unit test', () => {
     jest.doMock('./apiRoutes', () => ({ allMessagesFromDate: getLastMessagesRouteMock }));
     jest.doMock('../shared', () => ({ apiClient: { get: getMock } }));
 
-    const service = require('./service');
-    const result = await service.getLastMessages([]);
+    const services = require('./services');
+    const result = await services.getLastMessages([]);
 
     expect(getLastMessagesRouteMock).toBeCalledWith(dateNowStub.setHours(0));
     expect(getMock).toBeCalledWith(getLastMessagesRouteStub);
@@ -74,8 +74,8 @@ describe('Service unit test', () => {
     jest.doMock('./apiRoutes', () => ({ allMessagesFromDate: getLastMessagesRouteMock }));
     jest.doMock('../shared', () => ({ apiClient: { get: getMock } }));
 
-    const service = require('./service');
-    const result = await service.getLastMessages(lastMessagesStub);
+    const services = require('./services');
+    const result = await services.getLastMessages(lastMessagesStub);
 
     expect(getLastMessagesRouteMock).toBeCalledWith(dateNowStub.setHours(0) + 1);
     expect(getMock).toBeCalledWith(getLastMessagesRouteStub);
