@@ -11,5 +11,8 @@ update_configs:
     automerged_updates:
       - match:
           dependency_type: "all"
-          update_type: "security:patch"
+          update_type: "semver:patch"
+      - match:
+          dependency_type: "all"
+          update_type: "semver:minor"
     version_requirement_updates: "increase_versions_if_necessary"
