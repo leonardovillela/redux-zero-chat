@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "axios": "^0.18.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "logkitty": "0.6.0",
     "qs": "6.2.0",
     "redux": "3.7.2",
